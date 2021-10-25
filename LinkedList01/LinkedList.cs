@@ -60,5 +60,23 @@ namespace LinkedList01
             Console.WriteLine("{0} inserted into linked list", node.data);
 
         }
+        internal void Append(int data)        //the append method
+        {
+            Node node = new Node(data);    //creating a node object of the Node class 
+            if (this.head == null)
+            {
+                this.head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} apeended into linked list", node.data);
+        }
     }
 }
