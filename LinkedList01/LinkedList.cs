@@ -9,7 +9,7 @@ namespace LinkedList01
     public class LinkedList
     {
         internal Node head;      //cearting a head variable of the node class
-        
+
         internal void Add(int data)        //the add method
         {
             Node node = new Node(data);    //creating a node object of the Node class 
@@ -42,6 +42,23 @@ namespace LinkedList01
                 Console.Write(temp.data + " ");
                 temp = temp.next;
             }
+        }
+
+        internal void AddFirst(int data)                //the add method 
+        {
+            Node node = new Node(data);                 //creating a node object of the Node class 
+            if (this.head == null)
+            {
+                node.next = null;
+            }
+            else
+            {
+                node.next = this.head;
+
+            }
+            this.head = node;
+            Console.WriteLine("{0} inserted into linked list", node.data);
+
         }
     }
 }
