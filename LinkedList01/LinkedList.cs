@@ -9,6 +9,7 @@ namespace LinkedList01
     public class LinkedList
     {
         internal Node head;      //cearting a head variable of the node class
+        public int place;        //used for assigning the value of position to be used for SearchAndInsert method.
 
         internal void Add(int data)        //the add method
         {
@@ -151,14 +152,14 @@ namespace LinkedList01
 
         }
 
-        internal void Search(int value)
+        internal int Search(int value)                   //this method searches for the value in the lsit macthing to the one entered
         {
             if (this.head == null)
                 Console.WriteLine("List is empty!");
 
             Node temp = head;
             int position = 1;
-            int count = 0;
+            int count = 0;                                //the variable count increments if there is any matching in the list
             while(temp != null)
             {
                 if (temp.data == value)
@@ -168,11 +169,21 @@ namespace LinkedList01
                     break;
                 }
                 temp = temp.next;
-                position++;
+                position++;                              //returns the psotion of the value in the list;
             }
             if (count == 0)
                 Console.WriteLine("There is no data that matches the entered value in the list!");
+
+            return position;
           
+        }
+
+
+        internal void SearchAndInsert(int valueToBeSearch, int replaceAfterValue)
+        {
+            this.place = Search(valueToBeSearch);
+            InsertAt(this.place+1, replaceAfterValue);            
+            
         }
     
    

@@ -12,7 +12,7 @@ namespace LinkedList01
             list.Append(70);
             list.Display();
             Console.WriteLine();
-            list.Search(57);
+            list.SearchAndInsert(30, 40);
             list.Display();
 
 
