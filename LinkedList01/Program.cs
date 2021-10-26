@@ -14,8 +14,9 @@ namespace LinkedList01
             list.InsertAt(2, 30);
             list.Display();
             Console.WriteLine();
-            list.DeleteFirst();
+            list.DeleteLast();
             list.Display();
+
 
         }
     }
