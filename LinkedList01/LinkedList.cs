@@ -77,7 +77,7 @@ namespace LinkedList01
                 }
                 temp.next = node;
             }
-            Console.WriteLine("{0} apeended into linked list", node.data);
+            Console.WriteLine("{0} appended into linked list", node.data);
         }
 
         internal void InsertAt(int position, int data)                //this enables us to insert a node at any given position
@@ -143,7 +143,7 @@ namespace LinkedList01
                 Console.WriteLine("Only 1 element in the list");
 
             Node node = head;             
-            while(node.next.next != null)                                 //it checks for 2 values and see's whether its null or not
+            while(node.next.next != null)                                 //it checks for 2 next values and see's whether its null or not
             {
                 node = node.next;
             }
@@ -179,13 +179,30 @@ namespace LinkedList01
         }
 
 
-        internal void SearchAndInsert(int valueToBeSearch, int replaceAfterValue)
+        internal void SearchAndInsert(int valueToBeSearch, int replaceAfterValue)         //the search and insert method
         {
             this.place = Search(valueToBeSearch);
             InsertAt(this.place+1, replaceAfterValue);            
             
         }
-    
+
+        internal void SearchAndDelete(int value)                                    //the search and delete method that takes the value from the user
+        {
+            if (this.head == null)
+                Console.WriteLine("List is empty!");
+
+            Node temp = head;                                                      //declaring the temporary variable head
+            while(temp.next != null)                                              //checking the next node's data to match with the given value 
+            {
+                if (temp.next.data == value)                                      
+                {
+                    Console.WriteLine("Deleted the node :" + temp.next.data);
+                    temp.next = temp.next.next;                                    //removing the next node by linking the current node to the next to next node
+                }
+                temp = temp.next;
+            }
+            
+        }    
    
     }    
     

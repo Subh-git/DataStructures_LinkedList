@@ -9,10 +9,12 @@ namespace LinkedList01
             LinkedList list = new LinkedList();
             list.Append(56);
             list.Append(30);
+            list.Append(40);
             list.Append(70);
             list.Display();
             Console.WriteLine();
-            list.SearchAndInsert(30, 40);
+            Console.WriteLine();
+            list.SearchAndDelete(40);
             list.Display();
 
 
