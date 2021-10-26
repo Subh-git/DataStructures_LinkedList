@@ -60,7 +60,7 @@ namespace LinkedList01
             Console.WriteLine("{0} inserted into linked list", node.data);
 
         }
-        internal void Append(int data)        //the append method
+        internal void Append(int data)        //the append method it is similar to Add method or Add last
         {
             Node node = new Node(data);    //creating a node object of the Node class 
             if (this.head == null)
@@ -78,5 +78,48 @@ namespace LinkedList01
             }
             Console.WriteLine("{0} apeended into linked list", node.data);
         }
-    }
+
+        internal void InsertAt(int position, int data)                //this enables us to insert a node at any given position
+        {
+            Node node = new Node(data);                              //declaring a node object of node class
+            if (position < 1)
+                Console.WriteLine("Invalid psotion");
+            else
+            {
+                Node temp = head;
+                while (position != 2)                               //the while loop is such designed soo that it starts afer 1 count to enter at the speciifed part
+                {
+                    temp = temp.next;
+                    position--;
+                }
+                node.next = temp.next;                             //linking the nodes
+                temp.next = node;
+               
+            }
+
+            
+        }
+        internal void MidInsert(int new_data)            //this method inserts data at the mid position
+        {
+            Node new_node = new Node(new_data);
+            Node pos = head;
+            int len = 0;
+            //calculate the length of linked list
+            while (pos != null)
+            {
+                len++;
+                pos = pos.next;
+            }
+            //finding middle possition
+            int count = ((len % 2) == 0) ? (len / 2) : (len + 1) / 2;
+            pos = head;
+            //pos is the pointer to the node after which
+            //pos is the pointer to the node after which the new node to be insert
+            while (count-- > 1)
+            {
+                pos = pos.next;
+            }
+            new_node.next = pos.next;
+            pos.next = new_node;
+    }    }   
 }
