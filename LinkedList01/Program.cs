@@ -8,13 +8,11 @@ namespace LinkedList01
         {
             LinkedList list = new LinkedList();
             list.Append(56);
+            list.Append(30);
             list.Append(70);
             list.Display();
             Console.WriteLine();
-            list.InsertAt(2, 30);
-            list.Display();
-            Console.WriteLine();
-            list.DeleteLast();
+            list.Search(57);
             list.Display();
 
 
