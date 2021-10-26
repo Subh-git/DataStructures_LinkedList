@@ -15,6 +15,7 @@ namespace LinkedList01
         public Node(int data)           //constructor
         {
             this.data = data;
+
         }
         
     }

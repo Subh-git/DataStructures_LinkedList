@@ -13,6 +13,9 @@ namespace LinkedList01
             Console.WriteLine();
             list.InsertAt(2, 30);
             list.Display();
+            Console.WriteLine();
+            list.DeleteFirst();
+            list.Display();
 
         }
     }

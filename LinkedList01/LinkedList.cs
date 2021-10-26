@@ -121,5 +121,20 @@ namespace LinkedList01
             }
             new_node.next = pos.next;
             pos.next = new_node;
-    }    }   
+        }
+
+        internal void DeleteFirst()                //removes the first node by assigning the next node address and value to the head node.
+        {
+            if (this.head == null)
+                Console.WriteLine("The  list is empty!");       //prints the statement when the list is empty
+            
+            Console.WriteLine("Deleted node: " + this.head.data);  //prints the deleted node
+            this.head = this.head.next;                           
+            
+        }
+    
+   
+    }    
+    
+    
 }
