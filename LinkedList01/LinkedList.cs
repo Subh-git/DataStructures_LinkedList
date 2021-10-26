@@ -202,7 +202,20 @@ namespace LinkedList01
                 temp = temp.next;
             }
             
-        }    
+        }
+        
+        internal int SizeOf()             //the method to count the number of elements in the list
+        {
+            int count = 1;
+
+            Node temp = this.head;
+            while(temp.next != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            return count;
+        }
    
     }    
     

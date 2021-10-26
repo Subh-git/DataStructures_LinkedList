@@ -13,10 +13,10 @@ namespace LinkedList01
             list.Append(70);
             list.Display();
             Console.WriteLine();
-            Console.WriteLine();
             list.SearchAndDelete(40);
             list.Display();
-
+            Console.WriteLine();
+            Console.WriteLine("The size of list is :" +list.SizeOf());
 
         }
     }
