@@ -36,7 +36,6 @@ namespace LinkedList01
             if (temp == null)
             {
                 Console.WriteLine("Linked list is empty");
-                return;
             }
             while (temp != null)
             {
@@ -95,10 +94,10 @@ namespace LinkedList01
                 }
                 node.next = temp.next;                             //linking the nodes
                 temp.next = node;
-               
+
             }
 
-            
+
         }
         internal void MidInsert(int new_data)            //this method inserts data at the mid position
         {
@@ -128,22 +127,22 @@ namespace LinkedList01
         {
             if (this.head == null)
                 Console.WriteLine("The  list is empty!");       //prints the statement when the list is empty
-            
+
             Console.WriteLine("Deleted node: " + this.head.data);  //prints the deleted node
-            this.head = this.head.next;                           
-            
+            this.head = this.head.next;
+
         }
 
         internal void DeleteLast()                          //this method deletes the last node from the linked list
         {
-            if(this.head == null)                   
+            if (this.head == null)
                 Console.WriteLine("The  list is empty!");
-            
-            if(this.head.next == null)                                      //checks if there is just 1 element in the list
+
+            if (this.head.next == null)                                      //checks if there is just 1 element in the list
                 Console.WriteLine("Only 1 element in the list");
 
-            Node node = head;             
-            while(node.next.next != null)                                 //it checks for 2 next values and see's whether its null or not
+            Node node = head;
+            while (node.next.next != null)                                 //it checks for 2 next values and see's whether its null or not
             {
                 node = node.next;
             }
@@ -160,7 +159,7 @@ namespace LinkedList01
             Node temp = head;
             int position = 1;
             int count = 0;                                //the variable count increments if there is any matching in the list
-            while(temp != null)
+            while (temp != null)
             {
                 if (temp.data == value)
                 {
@@ -175,15 +174,15 @@ namespace LinkedList01
                 Console.WriteLine("There is no data that matches the entered value in the list!");
 
             return position;
-          
+
         }
 
 
         internal void SearchAndInsert(int valueToBeSearch, int replaceAfterValue)         //the search and insert method
         {
             this.place = Search(valueToBeSearch);
-            InsertAt(this.place+1, replaceAfterValue);            
-            
+            InsertAt(this.place + 1, replaceAfterValue);
+
         }
 
         internal void SearchAndDelete(int value)                                    //the search and delete method that takes the value from the user
@@ -192,32 +191,89 @@ namespace LinkedList01
                 Console.WriteLine("List is empty!");
 
             Node temp = head;                                                      //declaring the temporary variable head
-            while(temp.next != null)                                              //checking the next node's data to match with the given value 
+            while (temp.next != null)                                              //checking the next node's data to match with the given value 
             {
-                if (temp.next.data == value)                                      
+                if (temp.next.data == value)
                 {
                     Console.WriteLine("Deleted the node :" + temp.next.data);
                     temp.next = temp.next.next;                                    //removing the next node by linking the current node to the next to next node
                 }
                 temp = temp.next;
             }
-            
-        }
-        
-        internal int SizeOf()             //the method to count the number of elements in the list
-        {
-            int count = 1;
 
-            Node temp = this.head;
-            while(temp.next != null)
+        }
+
+    }
+
+    public class SortedLinkedList
+    {
+        internal Node head;
+
+        internal void Add(int data)        //the add method of sorted linked list class
+        {
+            Node node = new Node(data);    //creating a node object of the Node class 
+            if (this.head == null)
             {
-                count++;
+                this.head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} inserted into linked list", node.data);
+        }
+
+        internal void Display()          //the display method
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked list is empty");
+            }
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
                 temp = temp.next;
             }
-            return count;
         }
-   
-    }    
-    
-    
+
+        internal void Sort()                 //the sort method to sort the list entries
+        {
+            Node current = head;             //declaring the current node and asssigning it to head
+            Node index = null;               //declaring an index node that will always take the next value to that of the current node
+            int temp = 0;                    // just a temporary variable to store the data
+            if (this.head == null)
+            {
+                Console.WriteLine("The list is empty!");
+            }
+
+            else
+            {
+                while (current != null)                   //till the current node isnt the last
+                {
+                    index = current.next;
+                    while (index != null)
+                    {
+                        if (current.data > index.data)          //taking the comparision between the current data and the next node's data
+                        {
+                            temp = index.data;
+                            index.data = current.data;
+                            current.data = temp;
+                        }
+                        index = index.next;
+                    }
+
+                    current = current.next;
+                }
+            }
+
+        }
+
+    }
+
 }

@@ -6,17 +6,15 @@ namespace LinkedList01
     {
         static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
-            list.Append(56);
-            list.Append(30);
-            list.Append(40);
-            list.Append(70);
+            SortedLinkedList list = new SortedLinkedList();               //created the list object of the SortedLinkedList class
+            list.Add(56);
+            list.Add(30);
+            list.Add(40);
+            list.Add(70);
             list.Display();
             Console.WriteLine();
-            list.SearchAndDelete(40);
+            list.Sort();
             list.Display();
-            Console.WriteLine();
-            Console.WriteLine("The size of list is :" +list.SizeOf());
 
         }
     }
