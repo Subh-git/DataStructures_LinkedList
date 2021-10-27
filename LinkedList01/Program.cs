@@ -16,8 +16,6 @@ namespace LinkedList01
             list.Sort();
             list.Display();
 
-
-
         }
     }
 }
